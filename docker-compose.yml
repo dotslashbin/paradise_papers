@@ -54,6 +54,9 @@ services:
         - 7687:7687
       networks:
         - rpnet
+      environment:
+        NEO4J_CACHE_MEMORY: '2G'
+        NEO4J_HEAP_MEMORY: '2G'
 networks:
     rpnet:
         driver: bridge
