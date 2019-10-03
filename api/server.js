@@ -1,10 +1,12 @@
 import express, { Router } from 'express'
+var cors = require('cors')
 
 // Routes
 import indexRoute from './src/api/routes'
-import EnttiTiesRoute from './src/api/routes/Entities'
+import EntitiesRoute from './src/api/routes/Entities'
 
 const app = express()
+app.use(cors())
 
 const PORT = 9000
 
@@ -13,8 +15,9 @@ const PORT = 9000
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+
 app.use('/', indexRoute)
-app.use('/entities', EnttiTiesRoute);
+app.use('/entities', EntitiesRoute);
 
 app.listen(PORT, () => { 
 	console.log(`Server is running on port : ${PORT}`)

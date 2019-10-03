@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { DataFetchers  } from '../../services/DataFetchers'
 
 class NodeEntity extends Component {
 
 	componentDidMount() {
-		console.log(`component mounts`)
+		DataFetchers.getNodeEntities()
 	}
 
 	render() {
