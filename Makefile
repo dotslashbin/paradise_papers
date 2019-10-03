@@ -10,5 +10,5 @@ down:
 
 clean:
 	@echo "======== cleaning up ========="
-	docker system prune -a -f 
+	docker system prune 
 	# docker volume prune -f /

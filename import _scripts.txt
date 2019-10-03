@@ -1,0 +1,92 @@
+[Addresses]
+LOAD CSV WITH HEADERS FROM 'http://drive.google.com/uc?export=download&id=1RamPxjPoKj1Rf0wLXDCXepuaeRFiGWyd' AS line
+CREATE (:Address { 
+	node_id: line.node_id,
+	name: line.name,
+	address: line.address,
+	country_codes: line.country_codes,
+	countries: line.countries,
+	sourceID: line.sourceID,
+	valid_until: line.valid_until,
+	note: line.note
+})
+
+
+[Officers]
+
+LOAD CSV WITH HEADERS FROM 'https://drive.google.com/uc?export=download&id=1gzBATq7LhL9d8GzspdOsfR24n4W7OS3j' AS line
+CREATE (:Officer { 
+node_id	: line.node_id	,
+name: line.name,
+country_codes: line.country_codes,
+countries: line.countries,
+status: line.status,
+sourceID: line.sourceID,
+valid_until	: line.valid_until	,
+note		: line.note		,
+})
+
+
+[Entities]
+
+LOAD CSV WITH HEADERS FROM 'https://drive.google.com/uc?export=download&id=1LuEkoWToTZPmjDknhQGbXBHYgIPT7NjC' AS line
+CREATE (:Entity { 
+			node_id	: line.node_id,
+			name: line.name,
+			jurisdiction: line.jurisdiction,
+			jurisdiction_description: line.jurisdiction_description,
+			country_codes: line.country_codes,
+			countries: line.countries,
+			incorporation_date: line.incorporation_date,
+			inactivation_date: line.inactivation_date,
+			struck_off_date: line.struck_off_date,
+			closed_date: line.closed_date,
+			ibcRUC: line.ibcRUC,
+			status: line.status,
+			company_type: line.company_type,
+			service_provider: line.service_provider,
+			sourceID: line.sourceID,
+			valid_until: line.valid_until,
+			note: line.note })
+
+[ Intermediary ]
+
+LOAD CSV WITH HEADERS FROM 'https://drive.google.com/uc?export=download&id=1Hi9xjyuL_T_L2t75g2oyHaL-dJmTfljK' AS line
+CREATE (:Intermediary { 
+			node_id: line.node_id,
+			name: line.name,
+			country_codes: line.country_codes,
+			countries: line.countries,
+			sourceID: line.sourceID,
+			valid_until: line.valid_until,
+			note: line.note
+			 })
+
+[ Other	]
+
+https://drive.google.com/open?id=1G9RfhoolnvFcF9i5B7D-QykuIEm915Pw
+
+LOAD CSV WITH HEADERS FROM 'https://drive.google.com/uc?export=download&id=1G9RfhoolnvFcF9i5B7D-QykuIEm915Pw' AS line
+CREATE (:Other { 
+			node_id: line.node_id,
+			name: line.name,
+			country_codes: line.country_codes,
+			countries: line.countries,
+			sourceID: line.sourceID,
+			valid_until: line.valid_until,
+			note: line.note
+			 })
+
+[ Edges ]
+
+LOAD CSV WITH HEADERS FROM 'https://drive.google.com/uc?export=download&id=1A3fdpybWgzAYsGT2kI6JoyH782VGkj13' AS line
+CREATE (:Edges { 
+	START_ID: line.START_ID,
+	TYPE: line.TYPE,
+	END_ID: line.END_ID,
+	link: line.link,
+	start_date: line.start_date,
+	end_date: line.end_date,
+	sourceID: line.sourceID,
+	valid_until: line.valid_until,
+			 })

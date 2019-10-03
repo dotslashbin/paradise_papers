@@ -26,12 +26,13 @@ services:
         #     - mongodb
         networks:
             - rpnet
-    # mongodb:
+    # mongodb:make
     #     image: mongo
     #     restart: always
-    #     container_name: mongodb
+    #     container_name: paradise_papers_mongodb
     #     volumes:
     #         - ./data_node:/data/db
+    #         - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     #     ports:
     #         - 27017:27017
     #     environment:
@@ -40,6 +41,18 @@ services:
     #     command: "mongod --auth"
     #     networks:
     #         - rpnet 
+    grapdb:
+      image: neo4j
+      restart: always
+      container_name: paradise_papers_neo4j
+      volumes:
+        - ./graphdb_data/data:/data
+        - ./graphdb_data/logs:/logs
+      ports:
+        - 7474:7474
+        - 7687:7687
+      networks:
+        - rpnet
 networks:
     rpnet:
         driver: bridge
