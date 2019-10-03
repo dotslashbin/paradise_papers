@@ -1,0 +1,79 @@
+LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.address.csv' AS line
+CREATE (:Address { 
+	node_id: line.node_id,
+	name: line.name,
+	address: line.address,
+	country_codes: line.country_codes,
+	countries: line.countries,
+	sourceID: line.sourceID,
+	valid_until: line.valid_until,
+	note: line.note
+})
+
+
+LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.officer.csv' AS line
+CREATE (:Officer { 
+node_id	: line.node_id	,
+name: line.name,
+country_codes: line.country_codes,
+countries: line.countries,
+status: line.status,
+sourceID: line.sourceID,
+valid_until	: line.valid_until,
+note		: line.note
+})
+
+
+LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.entity.csv' AS line
+CREATE (:Entity { 
+			node_id	: line.node_id,
+			name: line.name,
+			jurisdiction: line.jurisdiction,
+			jurisdiction_description: line.jurisdiction_description,
+			country_codes: line.country_codes,
+			countries: line.countries,
+			incorporation_date: line.incorporation_date,
+			inactivation_date: line.inactivation_date,
+			struck_off_date: line.struck_off_date,
+			closed_date: line.closed_date,
+			ibcRUC: line.ibcRUC,
+			status: line.status,
+			company_type: line.company_type,
+			service_provider: line.service_provider,
+			sourceID: line.sourceID,
+			valid_until: line.valid_until,
+			note: line.note })
+
+LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.intermediary.csv' AS line
+CREATE (:Intermediary { 
+			node_id: line.node_id,
+			name: line.name,
+			country_codes: line.country_codes,
+			countries: line.countries,
+			sourceID: line.sourceID,
+			valid_until: line.valid_until,
+			note: line.note
+			 })
+
+LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.other.csv' AS line
+CREATE (:Other { 
+			node_id: line.node_id,
+			name: line.name,
+			country_codes: line.country_codes,
+			countries: line.countries,
+			sourceID: line.sourceID,
+			valid_until: line.valid_until,
+			note: line.note
+			 })
+
+LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.edges.csv' AS line
+CREATE (:Edges { 
+	START_ID: line.START_ID,
+	TYPE: line.TYPE,
+	END_ID: line.END_ID,
+	link: line.link,
+	start_date: line.start_date,
+	end_date: line.end_date,
+	sourceID: line.sourceID,
+	valid_until: line.valid_until
+			 })
