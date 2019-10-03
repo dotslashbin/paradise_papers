@@ -22,24 +22,24 @@ services:
         volumes:
             - ./api:/api
             - /api/node_modules
-        depends_on:
-            - mongodb
+        # depends_on:
+        #     - mongodb
         networks:
             - rpnet
-    mongodb:
-        image: mongo
-        restart: always
-        container_name: mongodb
-        volumes:
-            - ./data_node:/data/db
-        ports:
-            - 27017:27017
-        environment:
-          MONGO_INITDB_ROOT_USERNAME: root
-          MONGO_INITDB_ROOT_PASSWORD: pass1234
-        command: "mongod --auth"
-        networks:
-            - rpnet 
+    # mongodb:
+    #     image: mongo
+    #     restart: always
+    #     container_name: mongodb
+    #     volumes:
+    #         - ./data_node:/data/db
+    #     ports:
+    #         - 27017:27017
+    #     environment:
+    #       MONGO_INITDB_ROOT_USERNAME: root
+    #       MONGO_INITDB_ROOT_PASSWORD: pass1234
+    #     command: "mongod --auth"
+    #     networks:
+    #         - rpnet 
 networks:
     rpnet:
         driver: bridge
