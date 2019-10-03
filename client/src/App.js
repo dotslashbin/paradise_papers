@@ -2,12 +2,12 @@ import React from 'react';
 
 // Components
 // import DataLoader from './components/DataLoader'
-import NodeEntity from './components/NodeEntity/NodeEntity'
+import Dashboard from './components/Dashboard/Dashboard'
 
 function App() {
   return (
     <div className="App">
-		<NodeEntity />
+		<Dashboard />
     </div>
   );
 }
