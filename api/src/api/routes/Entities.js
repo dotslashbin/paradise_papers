@@ -1,5 +1,11 @@
 import { Router } from 'express'
 
+// Common
+import ReturnStatements from '../../common/ReturnStatements'
+
+// Services
+import EntitiesServices from '../../services/EntitiesService'
+
 const router = Router()
 
 /**
@@ -10,7 +16,17 @@ const router = Router()
  * Loads the index route. There's nothing here for the moment
  */
 router.get('/', (request, response) => {
-	response.status(200).json({ foo: 'this is the entities' })
+
+	const data = EntitiesServices.getEntitiesGraphData()
+
+	let returnObject;
+
+	if (data) {
+		returnObject = ReturnStatements.success;
+		returnObject.data = data
+	}
+
+	response.status(200).json(returnObject)
 })
 
 export default router
