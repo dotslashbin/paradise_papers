@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
+
+// Components
+import NodeEntity from './NodeEntity/NodeEntity'
 
 export default function DataLoader() {
 
-	const [values, setValues] = useState({
-		foo: 'bar'
-	})
-
 	return (
 		<div>
-			Testing { values.foo }
+			Testing
+			<did>
+				<NodeEntity />
+			</did>
 		</div>
 	)
 }
