@@ -1,6 +1,10 @@
 ## ParadisePapers
 Fill this one up later .... with the other sections
 
+## Importing the data
+1. Login to localhost:7474 with the credentials: username-> neo4j, password-> neo4j
+2. Change the password to your desired password
+
 ## What I used here
 ReactJs - base
 Redux - store/state management

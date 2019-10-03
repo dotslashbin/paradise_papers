@@ -48,6 +48,7 @@ services:
       volumes:
         - ./graphdb_data/data:/data
         - ./graphdb_data/logs:/logs
+        - ./sample_data:/var/lib/neo4j/import
       ports:
         - 7474:7474
         - 7687:7687
