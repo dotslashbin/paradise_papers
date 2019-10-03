@@ -1,0 +1,22 @@
+{
+  "name": "paradise_papers_api",
+  "version": "1.0.0",
+  "description": "A sample backend application that provides statistical data to be represented in a graph.",
+  "main": "server.js",
+  "scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1",
+	"start": "nodemon server.js --exec babel-node --presets babel-preset-env"
+  },
+  "author": "Joshua Fuentes <joshuarpf@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.19.3"
+  }
+}
