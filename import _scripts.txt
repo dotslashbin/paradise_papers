@@ -88,5 +88,5 @@ CREATE (:Edges {
 	start_date: line.start_date,
 	end_date: line.end_date,
 	sourceID: line.sourceID,
-	valid_until: line.valid_until,
+	valid_until: line.valid_until
 			 })
