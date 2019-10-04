@@ -25,10 +25,11 @@ const EntititesService = {
 	 * Returns a stuctured data for an entity graph
 	*/
 	getEntitiesGraphData: () => {
-		session.run('MATCH (n) RETURN n LIMIT 25')
+		session.run('MATCH p=()-[r:DIRECTED]->() RETURN p LIMIT 25')
 			.then(result => {
-				result.records.forEach(record => {m
-					console.log(record._fields[0].properties)
+				result.records.forEach(record => {
+
+					console.log(`here's the record`, record._fields[0])
 					// console.log(record._fields[0].properties)
 				})
 			})
@@ -50,6 +51,9 @@ const EntititesService = {
 		// 	]
 		// };
 	}
+
 }
+
+driver.close()
 
 export default EntititesService

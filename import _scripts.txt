@@ -8,7 +8,7 @@ CREATE (:Address {
 	countries: line.countries,
 	sourceID: line.sourceID,
 	valid_until: line.valid_until,
-	note: line.note
+	note: line.notepi
 })
 
 
