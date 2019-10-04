@@ -3,6 +3,7 @@ services:
     client:
         build: ./client
         image: paradise_papers_client
+        container_name: paradise_papers_client
         restart: always
         ports:
             - "3000:3000"
@@ -12,10 +13,12 @@ services:
         links:
             - api
         networks:
-            - rpnet
+          rpnet:
+            ipv4_address: 10.5.0.2
     api:
         build: ./api
         image: paradise_papers_api
+        container_name: paradise_papers_api
         restart: always
         ports:
             - "9000:9000"
@@ -25,7 +28,8 @@ services:
         # depends_on:
         #     - mongodb
         networks:
-            - rpnet
+          rpnet:
+            ipv4_address: 10.5.0.7
     # mongodb:make
     #     image: mongo
     #     restart: always
@@ -53,7 +57,8 @@ services:
         - 7474:7474
         - 7687:7687
       networks:
-        - rpnet
+        rpnet:
+          ipv4_address: 10.5.0.3
       environment:
         NEO4J_CACHE_MEMORY: '4G'
         NEO4J_HEAP_MEMORY: '4G'
@@ -62,3 +67,7 @@ services:
 networks:
     rpnet:
         driver: bridge
+        ipam:
+          config:
+              - subnet: 10.5.0.0/16
+                gateway: 10.5.0.1
