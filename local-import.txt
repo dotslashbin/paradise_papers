@@ -1,4 +1,4 @@
-LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.address.csv' AS line
+LOAD CSV WITH HEADERS FROM 'file:///address.csv' AS line
 CREATE (:Address { 
 	node_id: line.node_id,
 	name: line.name,
@@ -11,7 +11,7 @@ CREATE (:Address {
 })
 
 
-LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.officer.csv' AS line
+LOAD CSV WITH HEADERS FROM 'file:///officer.csv' AS line
 CREATE (:Officer { 
 node_id	: line.node_id	,
 name: line.name,
@@ -24,7 +24,7 @@ note		: line.note
 })
 
 
-LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.entity.csv' AS line
+LOAD CSV WITH HEADERS FROM 'file:///entity.csv' AS line
 CREATE (:Entity { 
 			node_id	: line.node_id,
 			name: line.name,
@@ -44,7 +44,7 @@ CREATE (:Entity {
 			valid_until: line.valid_until,
 			note: line.note })
 
-LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.intermediary.csv' AS line
+LOAD CSV WITH HEADERS FROM 'file:///intermediary.csv' AS line
 CREATE (:Intermediary { 
 			node_id: line.node_id,
 			name: line.name,
@@ -55,7 +55,7 @@ CREATE (:Intermediary {
 			note: line.note
 			 })
 
-LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.nodes.other.csv' AS line
+LOAD CSV WITH HEADERS FROM 'file:///other.csv' AS line
 CREATE (:Other { 
 			node_id: line.node_id,
 			name: line.name,
@@ -66,14 +66,10 @@ CREATE (:Other {
 			note: line.note
 			 })
 
-LOAD CSV WITH HEADERS FROM 'file:///paradise_papers.edges.csv' AS line
+LOAD CSV WITH HEADERS FROM 'file:///edges.csv' AS line
 CREATE (:Edges { 
 	START_ID: line.START_ID,
 	TYPE: line.TYPE,
 	END_ID: line.END_ID,
 	link: line.link,
-	start_date: line.start_date,
-	end_date: line.end_date,
-	sourceID: line.sourceID,
-	valid_until: line.valid_until
 			 })
