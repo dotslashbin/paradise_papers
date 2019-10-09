@@ -9,12 +9,11 @@ services:
             - "3000:3000"
         volumes:
             - ./client:/client
-            - /client/node_modules
         links:
             - api
         networks:
           rpnet:
-            ipv4_address: 10.5.0.2
+            ipv4_address: 10.5.0.10
     api:
         build: ./api
         image: paradise_papers_api
@@ -24,13 +23,12 @@ services:
             - "9000:9000"
         volumes:
             - ./api:/api
-            - /api/node_modules
         # depends_on:
         #     - mongodb
         networks:
           rpnet:
-            ipv4_address: 10.5.0.7
-    # mongodb:make
+            ipv4_address: 10.5.0.11
+    # mongodb:
     #     image: mongo
     #     restart: always
     #     container_name: paradise_papers_mongodb
@@ -44,7 +42,8 @@ services:
     #       MONGO_INITDB_ROOT_PASSWORD: pass1234
     #     command: "mongod --auth"
     #     networks:
-    #         - rpnet 
+    #         rpnet:
+    #           ipv4_address: 10.5.0.2
     grapdb:
       image: neo4j
       restart: always
