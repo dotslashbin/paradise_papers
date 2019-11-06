@@ -12,7 +12,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.7.3",
+    "mongoose": "^5.7.5",
     "neo4j-driver": "^1.7.6",
     "neo4j-graphql-js": "^2.7.2"
   },
